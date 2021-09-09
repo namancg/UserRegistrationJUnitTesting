@@ -112,5 +112,30 @@ public class UserValidationTest {
 			boolean result = validator.validateEmail("abc.xyz@vi.co.in");
 			Assert.assertEquals(false, result);
 		}
+	   	@Test
+	   	public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validateMobileNumber("91 9538169967");
+	   		Assert.assertEquals(true, result);
+	   	}
 	   	
+	   	@Test
+	   	public void givenMobileNumber_WhenNoSpace_ShouldReturnFalse() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validateMobileNumber("919538169967");
+	   		Assert.assertEquals(false, result);
+	   	}
+	   	
+	   	@Test
+	   	public void givenMobileNumber_WhenNumberLessThanTenDigits_ShouldReturnFalse() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validateMobileNumber("91 636473773");
+	   		Assert.assertEquals(false ,result);
+	   	}
+	   	
+	  
+
 }
