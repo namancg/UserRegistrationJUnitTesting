@@ -136,6 +136,36 @@ public class UserValidationTest {
 	   		Assert.assertEquals(false ,result);
 	   	}
 	   	
-	  
+	   	@Test
+	   	public void givenPassword_WhenProper_ShouldReturnTrue() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validatePassword("Namancg@1974");
+	   		Assert.assertEquals(true, result);
+	   	}
+	   	
+	   	@Test
+	   	public void givenPassword_WhenLessThanEightCharcters_ShouldReturnFalse() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validatePassword("Namancg");
+	   		Assert.assertEquals(false, result);
+	   	}
+	   	
+	   	@Test
+	   	public void givenPassword_WhenNoUpperCaseCharacter_ShouldReturnFalse() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validatePassword("namancg1919");
+	   		Assert.assertEquals(false, result);
+	   	}
+	   	
+	   	@Test
+	   	public void givenPassword_WhenNoNumericalNumber_ShouldReturnFalse() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validatePassword("namancg");
+	   		Assert.assertEquals(false, result);
+	   	}
 
 }
