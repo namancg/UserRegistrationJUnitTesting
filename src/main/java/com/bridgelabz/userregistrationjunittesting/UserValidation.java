@@ -17,4 +17,9 @@ public class UserValidation {
 		String mobileNumberRegex = "[0-9]{1,2}\\s{1}[0-9]{10}$";
 		return mobileNumber.matches(mobileNumberRegex);
 	}
+	public boolean validatePassword(String password) {
+
+		String passwordRegex = "(?=.*[@#$%^&-+=()])(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9].{8,}";
+		return password.matches(passwordRegex);
+	}
 }
