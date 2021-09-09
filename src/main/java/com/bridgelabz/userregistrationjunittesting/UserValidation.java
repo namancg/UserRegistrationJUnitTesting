@@ -12,5 +12,9 @@ public class UserValidation {
 		return email.matches(emailRegex);
 	}
 	
-	
+	public boolean validateMobileNumber(String mobileNumber) {
+
+		String mobileNumberRegex = "[0-9]{1,2}\\s{1}[0-9]{10}$";
+		return mobileNumber.matches(mobileNumberRegex);
+	}
 }
