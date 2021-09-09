@@ -71,6 +71,46 @@ public class UserValidationTest {
 	            boolean result=validator.validateName("Chandra");
 	            Assert.assertEquals(true, result);
 	       }
-	      
+	       @Test
+	   	public void givenEmailAddress_WhenProper_ShouldReturnTrue() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validateEmail("abc-100@yahoo.com");
+	   		Assert.assertEquals(true, result);
+	   	}
+	   	@Test
+	   	public void givenEmailAddress_WhenNotProper_ShouldReturnFalse() {
+	   		
+	   		UserValidation userValidator = new UserValidation();
+	   		boolean result = userValidator.validateEmail("abc()*@gmail.com");
+	   		Assert.assertEquals(false ,result);
+	   		
+	   	}
+	   	@Test
+		public void givenEmail_WhenMisplaced_Symbol_ShouldReturnFalse() {
+			UserValidation validator = new UserValidation();
+			boolean result = validator.validateEmail("abcbl.co@.co");
+			Assert.assertEquals(false, result);
+		}
+
+		@Test
+		public void givenEmail_WhenMisplaced_dot_ShouldReturnFalse() {
+			UserValidation validator = new UserValidation();
+			boolean result = validator.validateEmail("abc.xyz@cg.in.");
+			Assert.assertEquals(false, result);
+		}
+		@Test
+		public void givenEmail_WhenMissedMandatoryPart_abc_ShouldReturnFalse() {
+			UserValidation validator = new UserValidation();
+			boolean result = validator.validateEmail("naman.xyz@bl.co.in");
+			Assert.assertEquals(false, result);
+		}
+
+		@Test
+		public void givenEmail_WhenMissedMandatoryPart_bl_ShouldReturnFalse() {
+			UserValidation validator = new UserValidation();
+			boolean result = validator.validateEmail("abc.xyz@vi.co.in");
+			Assert.assertEquals(false, result);
+		}
 	   	
 }
