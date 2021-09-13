@@ -1,9 +1,14 @@
 package com.bridgelabz.userregistrationjunittesting;
 
 public class UserValidationException extends RuntimeException{
-	public UserValidationException(String message)
+	enum ExceptionType {
+		ENTERED_NULL,ENTERED_EMPTY
+	}
+	ExceptionType type;
+	public UserValidationException(ExceptionType type, String message)
 	{
 		super(message);
+		this.type=type;
 	}
 	
 }
