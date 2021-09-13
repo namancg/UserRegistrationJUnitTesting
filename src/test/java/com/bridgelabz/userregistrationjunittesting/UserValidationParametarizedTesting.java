@@ -16,7 +16,7 @@ public class UserValidationParametarizedTesting {
 	public boolean result;
 	public UserValidation userValidator;
 
-	public UserValidationParametarizedTesting(String testEmail, boolean expectedResult) {
+	public UserValidationParametarizedTesting(String testEmail, boolean result) {
 
 		this.testEmail = testEmail;
 		this.result = result;
@@ -42,7 +42,7 @@ public class UserValidationParametarizedTesting {
 	}
 	@Test
 	public void givenEmailAddress_ShouldReturnAsExpected() throws UserValidationException {
-		boolean testResult = userValidator.validateEmail(testEmail);
+		boolean testResult = userValidator.validateEmailID.validate(testEmail);
 		Assert.assertEquals(testResult, result);
 	}
 
