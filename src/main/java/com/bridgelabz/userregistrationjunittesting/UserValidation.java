@@ -1,8 +1,11 @@
 package com.bridgelabz.userregistrationjunittesting;
-
+import com.bridgelabz.userregistrationjunittesting.UserValidationException.ExceptionType;;
+@FunctionalInterface
+interface UserValidationIF {
+	public boolean validate(String n) throws UserValidationException;
+}
 public class UserValidation {
-	public boolean validateName(String name)throws UserValidationException 
-	{
+		UserValidationIF validateName = name -> {
 		try 
 		{
 		String nameRegex = "^[A-Z]{1}[a-z]{1,}";
@@ -10,11 +13,12 @@ public class UserValidation {
 		}
 		catch (NullPointerException e)
 		{
-			throw new UserValidationException("ENTER A NAME");
+			throw new UserValidationException(ExceptionType.ENTERED_NULL,"ENTER A NAME");
 		}
-	}
-	public boolean validateEmail(String email)throws UserValidationException 
-	{
+		};
+	
+		
+		UserValidationIF validateEmailID = email -> {
 		try 
 		{
 
@@ -22,12 +26,11 @@ public class UserValidation {
 		return email.matches(emailRegex);
 		}
 		catch(NullPointerException e) {
-			throw new UserValidationException("ENTER EMAIL ID");
+			throw new UserValidationException(ExceptionType.ENTERED_NULL,"ENTER A EMAIL ID");
 		}
-	}
+	};
 	
-	public boolean validateMobileNumber(String mobileNumber)throws UserValidationException  
-	{
+	UserValidationIF validateMobileNumber = mobileNumber -> {
 		try
 		{
 
@@ -36,11 +39,10 @@ public class UserValidation {
 		}
 		catch (NullPointerException e)
 		{
-		throw new UserValidationException("ENTER MOBILE NUMBER");
+			throw new UserValidationException(ExceptionType.ENTERED_NULL,"ENTER A MOBILE NUMBER");
 		}
-	}
-	public boolean validatePassword(String password) throws UserValidationException
-	{
+	};
+	UserValidationIF validatePassword = password -> {
 		try 
 		{
 		String passwordRegex = "(?=.*[@#$%^&-+=()])(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9].{8,}";
@@ -48,7 +50,7 @@ public class UserValidation {
 		}
 		catch (NullPointerException e)
 		{
-			throw new UserValidationException("ENTER PASSWORD");
+			throw new UserValidationException(ExceptionType.ENTERED_NULL,"ENTER A PASSWORD");
 		}
-	}
+	};
 }
