@@ -6,7 +6,7 @@ public class UserValidationTest {
 	 public void givenFirstName_WhenProper_ShouldReturnTrue() throws UserValidationException
 	{
 	        UserValidation validator=new UserValidation();
-	        boolean result=validator.validateName("Naman");
+	        boolean result=validator.validateName.validate("Naman");
 	        Assert.assertEquals(true, result);
 	    }
 	    
@@ -14,7 +14,7 @@ public class UserValidationTest {
 	    public void givenFirstName_WhenShort_ShouldReturnFalse()throws UserValidationException 
 	    {
 	    	 UserValidation validator=new UserValidation();
-	         boolean result=validator.validateName("nc");
+	         boolean result=validator.validateName.validate("nc");
 	         Assert.assertEquals(false, result);
 	    }
 	    
@@ -22,7 +22,7 @@ public class UserValidationTest {
 	    public void givenFirstName_WhenStartWithSpecialChars_ShouldReturnFalse()throws UserValidationException 
 	    {
 	    	 UserValidation validator=new UserValidation();
-	         boolean result=validator.validateName("_Naman");
+	         boolean result=validator.validateName.validate("_Naman");
 	         Assert.assertEquals(false, result);
 	    }
 	    @Test
@@ -32,7 +32,7 @@ public class UserValidationTest {
 			UserValidation userValidator = new UserValidation();
 			try
 			{
-				userValidator.validateName(null);
+				userValidator.validateName.validate(null);
 			}
 			catch(UserValidationException e)
 			{
@@ -47,7 +47,7 @@ public class UserValidationTest {
 			UserValidation userValidator = new UserValidation();
 			try 
 			{
-				userValidator.validateName("");
+				userValidator.validateName.validate("");
 			}
 			catch(UserValidationException e)
 			{
@@ -60,7 +60,7 @@ public class UserValidationTest {
 	    public void givenFirstName_WhenStartWithSmallLetter_ShouldReturnFalse()throws UserValidationException 
 	    {
 	    	 UserValidation validator=new UserValidation();
-	         boolean result=validator.validateName("naman");
+	         boolean result=validator.validateName.validate("naman");
 	         Assert.assertEquals(false, result);
 	    }
 	    
@@ -68,7 +68,7 @@ public class UserValidationTest {
 	    public void givenFirstName_WhenLongAndStartWithCapital_ShouldReturnTrue()throws UserValidationException 
 	    {
 	    	 UserValidation validator=new UserValidation();
-	         boolean result=validator.validateName("Namanchadfrrha");
+	         boolean result=validator.validateName.validate("Namanchadfrrha");
 	         Assert.assertEquals(true, result);
 	    }
 	    
@@ -76,7 +76,7 @@ public class UserValidationTest {
 	    public void givenLastName_WhenProper_ShouldReturnTrue()throws UserValidationException 
 	    {
 	           UserValidation validator=new UserValidation();
-	           boolean result=validator.validateName("Chandra");
+	           boolean result=validator.validateName.validate("Chandra");
 	           Assert.assertEquals(true, result);
 	       }
 	       
@@ -84,7 +84,7 @@ public class UserValidationTest {
 	       public void givenLastName_WhenShort_ShouldReturnFalse()throws UserValidationException 
 	       {
 	       	 UserValidation validator=new UserValidation();
-	            boolean result=validator.validateName("cha");
+	            boolean result=validator.validateName.validate("cha");
 	            Assert.assertEquals(false, result);
 	       }
 	       
@@ -92,7 +92,7 @@ public class UserValidationTest {
 	       public void givenLastName_WhenStartWithSpecialChars_ShouldReturnFalse()throws UserValidationException 
 	       {
 	       	 UserValidation validator=new UserValidation();
-	            boolean result=validator.validateName("_Chandra");
+	            boolean result=validator.validateName.validate("_Chandra");
 	            Assert.assertEquals(false, result);
 	       }
 	       
@@ -100,7 +100,7 @@ public class UserValidationTest {
 	       public void givenLastName_WhenStartWithSmallLetter_ShouldReturnFalse()throws UserValidationException
 	       {
 	       	 UserValidation validator=new UserValidation();
-	            boolean result=validator.validateName("chandra");
+	            boolean result=validator.validateName.validate("chandra");
 	            Assert.assertEquals(false, result);
 	       }
 	       
@@ -108,7 +108,7 @@ public class UserValidationTest {
 	       public void givenLastName_WhenLongAndStartWithCapital_ShouldReturnTrue()throws UserValidationException 
 	       {
 	       	 UserValidation validator=new UserValidation();
-	            boolean result=validator.validateName("Chandra");
+	            boolean result=validator.validateName.validate("Chandra");
 	            Assert.assertEquals(true, result);
 	       }
 	       @Test
@@ -117,7 +117,7 @@ public class UserValidationTest {
 	   		UserValidation userValidator = new UserValidation();
 	   		try 
 	   		{
-	   			userValidator.validateName(null);
+	   			userValidator.validateName.validate(null);
 	   		}
 	   		catch(UserValidationException e)
 	   		{
@@ -129,7 +129,7 @@ public class UserValidationTest {
 	       {
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validateEmail("abc-100@yahoo.com");
+	   		boolean result = userValidator.validateEmailID.validate("abc-100@yahoo.com");
 	   		Assert.assertEquals(true, result);
 	   	}
 	   	@Test
@@ -137,7 +137,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validateEmail("abc()*@gmail.com");
+	   		boolean result = userValidator.validateEmailID.validate("abc()*@gmail.com");
 	   		Assert.assertEquals(false ,result);
 	   		
 	   	}
@@ -145,7 +145,7 @@ public class UserValidationTest {
 		public void givenEmail_WhenMisplaced_Symbol_ShouldReturnFalse()throws UserValidationException 
 	   	{
 			UserValidation validator = new UserValidation();
-			boolean result = validator.validateEmail("abcbl.co@.co");
+			boolean result = validator.validateEmailID.validate("abcbl.co@.co");
 			Assert.assertEquals(false, result);
 		}
 
@@ -153,14 +153,14 @@ public class UserValidationTest {
 		public void givenEmail_WhenMisplaced_dot_ShouldReturnFalse()throws UserValidationException 
 		{
 			UserValidation validator = new UserValidation();
-			boolean result = validator.validateEmail("abc.xyz@cg.in.");
+			boolean result = validator.validateEmailID.validate("abc.xyz@cg.in.");
 			Assert.assertEquals(false, result);
 		}
 		@Test
 		public void givenEmail_WhenMissedMandatoryPart_abc_ShouldReturnFalse() throws UserValidationException
 		{
 			UserValidation validator = new UserValidation();
-			boolean result = validator.validateEmail("naman.xyz@bl.co.in");
+			boolean result = validator.validateEmailID.validate("naman.xyz@bl.co.in");
 			Assert.assertEquals(false, result);
 		}
 
@@ -168,7 +168,7 @@ public class UserValidationTest {
 		public void givenEmail_WhenMissedMandatoryPart_bl_ShouldReturnFalse()throws UserValidationException 
 		{
 			UserValidation validator = new UserValidation();
-			boolean result = validator.validateEmail("abc.xyz@vi.co.in");
+			boolean result = validator.validateEmailID.validate("abc.xyz@vi.co.in");
 			Assert.assertEquals(false, result);
 		}
 
@@ -178,7 +178,7 @@ public class UserValidationTest {
 			UserValidation userValidator = new UserValidation();
 			try 
 			{
-				userValidator.validateEmail("");
+				userValidator.validateEmailID.validate("");
 			}
 			catch(UserValidationException e)
 			{
@@ -191,7 +191,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validateMobileNumber("91 9538169967");
+	   		boolean result = userValidator.validateMobileNumber.validate("91 9538169967");
 	   		Assert.assertEquals(true, result);
 	   	}
 	   	
@@ -200,7 +200,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validateMobileNumber("919538169967");
+	   		boolean result = userValidator.validateMobileNumber.validate("919538169967");
 	   		Assert.assertEquals(false, result);
 	   	}
 	   	
@@ -209,7 +209,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validateMobileNumber("91 636473773");
+	   		boolean result = userValidator.validateMobileNumber.validate("91 636473773");
 	   		Assert.assertEquals(false ,result);
 	   	}
 	   	@Test
@@ -218,7 +218,7 @@ public class UserValidationTest {
 			UserValidation userValidator = new UserValidation();
 			try 
 			{
-				userValidator.validateMobileNumber("");
+				userValidator.validateMobileNumber.validate("");
 			}
 			catch(UserValidationException e)
 			{
@@ -232,7 +232,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validatePassword("Namancg@1974");
+	   		boolean result = userValidator.validatePassword.validate("Namancg@1974");
 	   		Assert.assertEquals(true, result);
 	   	}
 	   	
@@ -241,7 +241,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validatePassword("Namancg");
+	   		boolean result = userValidator.validatePassword.validate("Namancg");
 	   		Assert.assertEquals(false, result);
 	   	}
 	   	
@@ -250,7 +250,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validatePassword("namancg1919");
+	   		boolean result = userValidator.validatePassword.validate("namancg1919");
 	   		Assert.assertEquals(false, result);
 	   	}
 	   	
@@ -259,7 +259,7 @@ public class UserValidationTest {
 	   	{
 	   		
 	   		UserValidation userValidator = new UserValidation();
-	   		boolean result = userValidator.validatePassword("namancg");
+	   		boolean result = userValidator.validatePassword.validate("namancg");
 	   		Assert.assertEquals(false, result);
 	   	}
 	   	@Test
@@ -269,7 +269,7 @@ public class UserValidationTest {
 			UserValidation userValidator = new UserValidation();
 			try 
 			{
-				userValidator.validatePassword("");
+				userValidator.validatePassword.validate("");
 			}
 			catch(UserValidationException e)
 			{
